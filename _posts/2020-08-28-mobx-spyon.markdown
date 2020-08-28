@@ -1,11 +1,13 @@
 ---
 layout: post
-title: Jest로 테스트 할 때 MobX spyOn으로 function mocking 하기
-date: 2020-08-28 13:32:20 +0800
-description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
-tags: [Blog, Development, Jest, Mobx, spyOn]
+title: Jest spyOn으로 unit test function mocking 하기
+date: 2020-08-28
+img: spyon-jest.jpg # Add image post (optional)
+tags: [Blog, Development, Jest, spyOn]
 author: JooYoung Lee # Add name author (optional)
 ---
+
+TDD(Test Driven Development)방식으로 개발을 진행하여서 개발을 진행 함에 따라 나타나는 여러 문제를 해결하고자 Jest를 사용하게 되었습니다.
 
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
