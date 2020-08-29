@@ -19,9 +19,9 @@ author: JooYoung Lee # Add name author (optional)
 
 {% highlight javascript %}
 const video = {
-play() {
-return true;
-},
+  play() {
+    return true;
+  },
 };
 
 module.exports = video;
@@ -31,13 +31,13 @@ module.exports = video;
 const video = require('./video');
 
 test('plays video', () => {
-const spy = jest.spyOn(video, 'play');
-const isPlaying = video.play();
+  const spy = jest.spyOn(video, 'play');
+  const isPlaying = video.play();
 
-expect(spy).toHaveBeenCalled();
-expect(isPlaying).toBe(true);
+  expect(spy).toHaveBeenCalled();
+  expect(isPlaying).toBe(true);
 
-spy.mockRestore();
+  spy.mockRestore();
 });
 {% endhighlight %}
 
@@ -49,13 +49,13 @@ spyOn 만으로는 내부에 있는 function call 을 override 하지 않는다.
 const video = require('./video');
 
 test('plays video', () => {
-const spy = jest.spyOn(video, 'play').mockImplementation(() => false);
-const isPlaying = video.play();
+  const spy = jest.spyOn(video, 'play').mockImplementation(() => false);
+  const isPlaying = video.play();
 
-expect(spy).toHaveBeenCalled();
-expect(isPlaying).toBe(true);
+  expect(spy).toHaveBeenCalled();
+  expect(isPlaying).toBe(true);
 
-spy.mockRestore();
+  spy.mockRestore();
 });
 {% endhighlight %}
 
