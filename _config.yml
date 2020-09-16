@@ -21,7 +21,7 @@ github: stylejy # Add your Github handle
 mailchimp: # Add your MailChimp form identifier.
 
 # Disqus
-discus_identifier: mr_stylejy # Add your discus identifier
+discus_identifier: jy-lee # Add your discus identifier
 
 # Tracker
 analytics: # Google Analytics
