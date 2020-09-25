@@ -2,7 +2,7 @@
 layout: post
 title: HoC(Higher-Order Component) 간단하게 알아보기
 date: 2020-09-24
-img: hoc.jpg # Add image post (optional)
+img: hoc.png # Add image post (optional)
 tags: [HoC패턴, HOC, 패턴, 설계, Higher Order Component, 컴포넌트, 리액트, react]
 author: JooYoung Lee # Add name author (optional)
 ---
