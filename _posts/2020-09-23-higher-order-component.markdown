@@ -13,6 +13,7 @@ React 를 사용 하여 개발을 진행하다 보면, HOC 라는 말을 듣게 
 
 HOC의 핵심은 한단어로 아래와 같다.
 > A higher-order component is a function that takes a component and returns a new component.
+
 React Docs 의 설명에서 가져왔다. 
 
 간단히 예를 들자면,
