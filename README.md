@@ -7,7 +7,7 @@
 알아둬야 할 폴더는 아래 두개를 참고해야 합니다.
 
 - \_posts
-- img
+- assets/img
 
 위의 두 폴더에 파일을 업로드 하고 push를 하면 웹페이지에서 포스트가 자동으로 출력 됩니다.
 
@@ -32,21 +32,7 @@ Post 파일은 \_posts 폴더에 새파일을 생성한후 아래와 같은 양�
 - about-author: 본인의 포스트 밑에 본인 소개 문구를 넣고 싶으면 사용합니다.(optional)
 - email: 본인의 이메일 주소를 포스트 밑에 넣고 싶은 경우 입력 합니다.(optional)
 
-예는 아래와 같습니다.
-
----
-
-layout: post
-title: Jest spyOn으로 unit test function mocking 하기
-date: 2020-08-28
-img: spyon-jest.jpg # Add image post (optional)
-tags: [Blog, Development, Jest, spyOn]
-author: JooYoung Lee # Add name author (required-fixed)
-author-pic: jy.jpg # Add author-pic (required-fixed)
-about-author: Love... # Add about-author (about 과 같음) (optional-fixed)
-email: stylejy@gmail.com # email (optiona-fixed)
-
----
+기존 포스트의 헤더를 참고 하시면 됩니다.
 
 ## Post 본문 작성
 
