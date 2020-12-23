@@ -8,8 +8,18 @@ url: "https://stylejy.github.io" # the base hostname & protocol for your site, e
 
 # Author settings
 author: JooYoung Lee, Jihoon Na and Seokkyu Ryu # add your name
-author-pic: me.jpg
-about-author: Working hard - Studying hard.
+# Author JooYoung Lee
+author-jy: JooYoung Lee
+author-pic-jy: jy.jpg
+about-author-jy: JooYoung Lee
+# Author JiHoon Na
+author-jh: JiHoon Na
+author-pic-jh: jh.jpg
+about-author-jh: JiHoon Na
+# Seokkyu Ryu
+author-sk: Seokkyu Ryu
+author-pic-sk: sk.jpg
+about-author-sk: Seokkyu Ryu
 
 # Contact links
 email: # Add your Email address
