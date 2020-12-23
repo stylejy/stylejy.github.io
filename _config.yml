@@ -12,14 +12,23 @@ author: JooYoung Lee, Jihoon Na and Seokkyu Ryu # add your name
 author-jy: JooYoung Lee
 author-pic-jy: jy.jpg
 about-author-jy: JooYoung Lee
+email-jy: stylejy@gmail.com
+website-jy: liketech.codes
+github-jy: stylejy
 # Author JiHoon Na
 author-jh: JiHoon Na
 author-pic-jh: jh.jpg
 about-author-jh: JiHoon Na
+email-jh: mail@jihoon.na
+website-jh: liketech.codes
+github-jh: jihoon
 # Seokkyu Ryu
 author-sk: Seokkyu Ryu
 author-pic-sk: sk.jpg
 about-author-sk: Seokkyu Ryu
+email-sk: mail@seokkyu.ryu
+website-sk: liketech.codes
+github-sk: seokkyu
 
 # Contact links
 email: # Add your Email address
