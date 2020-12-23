@@ -4,7 +4,10 @@ title: HOC(Higher-Order Component) 간단하게 알아보기
 date: 2020-09-24
 img: hoc.png # Add image post (optional)
 tags: [HoC패턴, HOC, 패턴, 설계, Higher Order Component, 컴포넌트, 리액트, react]
-author: JooYoung Lee # Add name author (optional)
+author: JooYoung Lee # Add name author (required-fixed)
+author-pic: jy.jpg # Add author-pic (required-fixed)
+about-author: Love... # Add about-author (about 과 같음) (optional-fixed)
+email: stylejy@gmail.com # email (optiona-fixed)
 ---
 
 React 를 사용 하여 개발을 진행하다 보면, HOC 라는 말을 듣게 된다. 특히 라이브러리 사용때 많이 듣게 되는데 너무나 당연하게 축약어를 사용하였어서 당황했던 경험이 있었다. Higher-Order Component의 약자인 HOC는 프로젝트가 커질수록 아주 유용하다. 혼자 이것저것 만들다가 꽤 커진 프로젝트까지 만들었던 아직 기본 개념이 부족했던 초기 에는 HOC가 무엇인지는 몰랐지만 이미 HOC를 쓰고 있었다는 사실을 나중에 알게 되었다.

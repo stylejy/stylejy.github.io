@@ -4,7 +4,10 @@ title: Jest spyOn으로 unit test function mocking 하기
 date: 2020-08-28
 img: spyon-jest.jpg # Add image post (optional)
 tags: [Blog, Development, Jest, spyOn]
-author: JooYoung Lee # Add name author (optional)
+author: JooYoung Lee # Add name author (required-fixed)
+author-pic: jy.jpg # Add author-pic (required-fixed)
+about-author: Love... # Add about-author (about 과 같음) (optional-fixed)
+email: stylejy@gmail.com # email (optiona-fixed)
 ---
 
 최근 개발 능력을 향상시키고자 읽었던 '[소프트웨어 장인][book]'이라는 책에서 나왔던 TDD(Test Driven Development)를 나의 업무에 적용해 보고자 했다.

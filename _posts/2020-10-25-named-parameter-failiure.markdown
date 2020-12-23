@@ -4,7 +4,10 @@ title: JS Named Parameter 실패사례
 date: 2020-10-25
 img: named-param.png # Add image post (optional)
 tags: [Named Parameter, 네임드 파라미터, Object Parameter, JS paramter]
-author: JooYoung Lee # Add name author (optional)
+author: JooYoung Lee # Add name author (required-fixed)
+author-pic: jy.jpg # Add author-pic (required-fixed)
+about-author: Love... # Add about-author (about 과 같음) (optional-fixed)
+email: stylejy@gmail.com # email (optiona-fixed)
 ---
 
 회사에서 리팩토링 파트를 맡게 되면서 JS Named Parameter 스타일을 도입해 보기로 했다. JS 에서는 네이티브로 Named Parameter를 지원 하지는 않지만, [Destructuring Assignment][MDN.Destructuring-assignment]를 이용하여 구현한 방식을 현재 많이 사용되고 있다.

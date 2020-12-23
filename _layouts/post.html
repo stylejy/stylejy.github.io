@@ -28,6 +28,37 @@ layout: default
             <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" title="Share on Google+" rel="nofollow" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
           </div><!-- End Share -->
         </div>
+
+        <section class="author-box">
+          <img
+            src="{{site.baseurl}}/assets/img/{% if page.author-pic %}{{page.author-pic}}{% endif %}"
+            alt="{{page.author}}"
+            class="author-img"
+          />
+          <div class="author-desc">
+            <h2>{{page.author}}</h2>
+            <p>{{page.about-author}}</p>
+            <ul>
+              {% if page.email %}
+              <li class="email">
+                <a href="mailto:{{page.email}}"><i class="fa fa-envelope-o"></i></a>
+              </li>
+              {% endif %} {% if page.website %}
+              <li class="website">
+                <a href="http://{{page.website}}" target="_blank"
+                  ><i class="fa fa-globe"></i
+                ></a>
+              </li>
+              {% endif %} {% if page.github %}
+              <li class="github">
+                <a href="http://github.com/{{page.github}}" target="_blank"
+                  ><i class="fa fa-github"></i
+                ></a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </section>
         <!--{% include author-box.html %}-->
         {% include recent-post.html %}
         {% include disqus.html %}
