@@ -1,19 +1,19 @@
-title: Blog - JooYoung Lee
+title: Like Tech
 email: stylejy@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  A development blog for sharing experience and thoughts.
+  A team tech blog written by JooYoung Lee, Jihoon Na and Seokkyu Ryu.
 permalink: ':title/'
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://stylejy.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Author settings
-author: JooYoung Lee # add your name
+author: JooYoung Lee, Jihoon Na and Seokkyu Ryu # add your name
 author-pic: me.jpg
-about-author: My name is JooYoung Lee. I'm a full-time adventurer in Computer Science and Software Development.
+about-author: Working hard - Studying hard.
 
 # Contact links
 email: # Add your Email address
-website: stylejy.github.io # Add your website, do not add http://
+website: liketech.codes # Add your website, do not add http://
 linkedin: # Add your Linkedin handle
 github: stylejy # Add your Github handle
 
