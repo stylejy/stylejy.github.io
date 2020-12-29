@@ -2,7 +2,7 @@
 layout: post
 title: jpa mapping 
 date: 2020-12-29
-# img: spyon-jest.jpg # Add image post (optional)
+img: jpa-mapping.jpg # Add image post (optional)
 tags: [Blog, Study, Spring Boot, JPA, MariaDB]
 author: Seokkyu Ryu # Add name author (required-fixed)
 author-pic: sk.jpg # Add author-pic (required-fixed)
