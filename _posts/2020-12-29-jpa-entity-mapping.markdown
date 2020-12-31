@@ -1,6 +1,6 @@
 ---
 layout: post
-title: jpa mapping 
+title: jpa entity mapping 
 date: 2020-12-29
 img: jpa-mapping.jpg # Add image post (optional)
 tags: [Blog, Study, Spring Boot, JPA, MariaDB]
