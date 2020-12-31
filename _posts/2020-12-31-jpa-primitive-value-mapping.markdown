@@ -47,7 +47,7 @@ public class Account {
 
   ...
 }
-{% endhighlight}
+{% endhighlight %}
 
 이렇게 써도 똑같은 의미이다. 자신의 코드 스타일에 따른 선택 사항이다.
 
