@@ -12,9 +12,9 @@ email: tjrrb95@gmail.com # email (optiona-fixed)
 
 ### value type mapping ###
 
-jpa value mapping -1 post에 이어지는 내용이다.\n
-jpa value mapping에서는 value가 primitive 타입인 경우만 다뤘었다.\n
-그렇다면 객체 타입도 column으로 mapping이 가능할까 하는 궁금증이 생긴다.\n 
+jpa value mapping -1 post에 이어지는 내용이다.
+jpa value mapping에서는 value가 primitive 타입인 경우만 다뤘었다.
+그렇다면 객체 타입도 column으로 mapping이 가능할까 하는 궁금증이 생긴다. 
 결론부터 말하자면 가능하다. 참 잘 되어있다.  
 
 이전부터 계속 사용해왔던 account 객체 예제를 보자.
@@ -35,9 +35,9 @@ public class Account {
 }
 {% endhighlight %}
 
-이 account entity를 보면 column으로 street, city, state, zipCode가 매핑될 것이다.\n
-하지만, 우리는 저 정보들이 주소와 관련된 정보들이고 이를 한 class(이하 Address class) 로 묶어서 관리하고 싶은 욕구가 생긴다.\n
-또한, 주소 관련 비지니스 로직은 Address class에 있는 것이 훨씬 설득력있는 코드가 될 것 같다.\n
+이 account entity를 보면 column으로 street, city, state, zipCode가 매핑될 것이다.
+하지만, 우리는 저 정보들이 주소와 관련된 정보들이고 이를 한 class(이하 Address class) 로 묶어서 관리하고 싶은 욕구가 생긴다.
+또한, 주소 관련 비지니스 로직은 Address class에 있는 것이 훨씬 설득력있는 코드가 될 것 같다.
 
 그래서 우리는 다음과 같이 코딩하고 싶어진다.  
 
