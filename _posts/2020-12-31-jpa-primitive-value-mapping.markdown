@@ -10,9 +10,9 @@ about-author: screw.. # Add about-author (about 과 같음) (optional-fixed)
 email: tjrrb95@gmail.com # email (optiona-fixed)
 ---
 
-jpa-entity-mapping post에 이어지는 내용이다.
-객체에서 entity type은 database에 table 개념으로 mapping되는 개념이다.
-객체에서 value type은 database에 column 개념으로 mapping되는 개념이다. 
+jpa-entity-mapping post에 이어지는 내용이다. <br>
+객체에서 entity type은 database에 table 개념으로 mapping되는 개념이다. <br>
+객체에서 value type은 database에 column 개념으로 mapping되는 개념이다. <br>
 
 ### value type mapping ###
 @Column annotation을 붙이면 한 table의 한 column으로 mapping된다.
