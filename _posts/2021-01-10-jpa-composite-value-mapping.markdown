@@ -1,7 +1,7 @@
 ---
 layout: post
 title: jpa value mapping - 2 
-date: 2020-12-31
+date: 2021-01-10
 img: jpa-mapping.jpg # Add image post (optional)
 tags: [Blog, Study, Spring Boot, JPA, MariaDB]
 author: Seokkyu Ryu # Add name author (required-fixed)

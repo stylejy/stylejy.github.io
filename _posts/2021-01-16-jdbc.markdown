@@ -1,0 +1,78 @@
+---
+layout: post
+title: jdbc
+date: 2021-01-16
+# img: jpa-mapping.jpg # Add image post (optional)
+tags: [Blog, Study, JDBC, JAVA]
+author: Seokkyu Ryu # Add name author (required-fixed)
+author-pic: sk.jpg # Add author-pic (required-fixed)
+about-author: screw.. # Add about-author (about 과 같음) (optional-fixed)
+email: tjrrb95@gmail.com # email (optiona-fixed)
+---
+
+계속해서 jpa mapping 관련해서 글을 작성하면서 문득 안다고 생각했던 것들이 정말 아는 것이 맞는 지에 대한 의구심이 들었다.  
+특히, hibernate라는 개념을 한 번 짚고 넘어가고 싶었다.  
+그래서 hibernate라는 것을 공부하면서 몇 가지 개념도 간략하게라도 같이 잡고 가고 싶다.  
+
+
+우선 jdbc. jdbc API는 자바에서 DB에 접속할 수 있게 해준다. 
+우리는 jdbc API를 사용하기 위해 jdbc driver를 로드한다. jdbc driver는 java protocol를 database protocol로 바꿔주는 어댑터 역할을 한다.
+database 종류마다 다른 종류의 jdbc driver를 사용한다.
+
+
+그리고 java에서 제공하는 DriverManager클래스를 이용한다. 
+DriverManager의 getConnection 함수에 jdbc url을 넘겨주면 url에 대응되는 database에 연결을 얻어 올 수 있다. 
+이 때 DriverManager는 등록된 jdbc driver 중에 적절한 driver를 선택한다. 
+
+
+연결된 후에는 Connection 클래스 타입 객체에서 Statement 클래스 타입 객체를 얻어올 수 있고, 
+이 객체를 가지고 특정 query를 실행할 수 있다.
+
+
+예시는 다음과 같다.
+
+{% highlight java %}
+... 
+// driver랑 url은 dbms 종류에 따라 규칙이나 이름이 상이하다.
+// 예시.. 
+// String driver = "oracle.jdbc.driver.OracleDriver"; // oracle용 jdbc Driver  
+// String url = "jdbc:oracle:thin:@localhost:1521:xe";
+
+// String driver = "com.mysql.jdbc.Driver"; // mysql용 jdbc Driver
+// String url = "jdbc:mysql://localhost/dev"; 
+
+String driver = "org.mariadb.jdbc.Driver"; // mysql용 jdbc Driver
+String url = "jdbc:mariadb://localhost:3306/dev";
+
+String user = "user"; // user 정보
+String password = "password"; // password 정보
+String query = "..."; // 실행하고 싶은 query
+
+// try-resources-with문 java 7 이상부터 가능
+try(
+    // jdbc driver 로드
+    Class.forName(driver);
+
+    Connection conn = DriverManager.getConnection(url, user, password);
+    Statement stat = conn.createStatement();
+    ResultSet rs = stat.executeQuery(query); 
+){
+    ...
+}catch(Exception e){
+    ...
+}
+
+{% end highlight %}
+
+이렇게 하면 ResultSet 클래스 타입의 객체 rs에 query 결과 값이 담아져서 온다. 
+위와 같이 jdbc를 이용하여 프로그래밍을 할 수도 있지만 query를 선언적으로 작성하지 않아도 클래스를 선언하고 잘 설계한다면
+객체에 대한 정보들을 이용하여 query를 생성 및 database에 날릴 수 있다. 
+
+다음 블로그에서 살펴보자.
+
+
+
+
+
+
+
