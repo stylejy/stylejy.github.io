@@ -62,7 +62,7 @@ try(
     ...
 }
 
-{% end highlight %}
+{% endhighlight %}
 
 이렇게 하면 ResultSet 클래스 타입의 객체 rs에 query 결과 값이 담아져서 온다. 
 위와 같이 jdbc를 이용하여 프로그래밍을 할 수도 있지만 query를 선언적으로 작성하지 않아도 클래스를 선언하고 잘 설계한다면
