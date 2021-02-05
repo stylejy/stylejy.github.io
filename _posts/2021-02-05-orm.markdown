@@ -19,8 +19,7 @@ email: tjrrb95@gmail.com # email (optiona-fixed)
 
 
 그리고, 개인적인 생각으로는 순수 jdbc를 이용해서 코드를 짜면, 유지보수가 힘들고 가독성이 떨어져 보인다.  
-application 비지니스 로직과 qeury 로직이 같이 있게 되어 비니지스 로직에 집중하기 힘들고, java code에 string으로 native query가 있으니  
-이뻐보이지 않는다(?).  
+application 비지니스 로직과 qeury 로직이 같이 있게 되어 비니지스 로직에 집중하기 힘들고, java code에 string으로 native query가 있으니 이뻐보이지 않는다(?).  
 
 
 # ORM ?
