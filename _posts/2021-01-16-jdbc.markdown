@@ -15,18 +15,18 @@ email: tjrrb95@gmail.com # email (optiona-fixed)
 그래서 hibernate라는 것을 공부하면서 몇 가지 개념도 간략하게라도 같이 잡고 가고 싶다.  
 
 
-우선 jdbc. jdbc API는 자바에서 DB에 접속할 수 있게 해준다. 
-우리는 jdbc API를 사용하기 위해 jdbc driver를 로드한다. jdbc driver는 java protocol를 database protocol로 바꿔주는 어댑터 역할을 한다.
-database 종류마다 다른 종류의 jdbc driver를 사용한다.
+우선 jdbc. jdbc API는 자바에서 DB에 접속할 수 있게 해준다.  
+우리는 jdbc API를 사용하기 위해 jdbc driver를 로드한다. jdbc driver는 java protocol를 database protocol로 바꿔주는 어댑터 역할을 한다.  
+database 종류마다 다른 종류의 jdbc driver를 사용한다.  
 
 
-그리고 java에서 제공하는 DriverManager클래스를 이용한다. 
-DriverManager의 getConnection 함수에 jdbc url을 넘겨주면 url에 대응되는 database에 연결을 얻어 올 수 있다. 
-이 때 DriverManager는 등록된 jdbc driver 중에 적절한 driver를 선택한다. 
+그리고 java에서 제공하는 DriverManager클래스를 이용한다.  
+DriverManager의 getConnection 함수에 jdbc url을 넘겨주면 url에 대응되는 database에 연결을 얻어 올 수 있다.  
+이 때 DriverManager는 등록된 jdbc driver 중에 적절한 driver를 선택한다.  
 
 
-연결된 후에는 Connection 클래스 타입 객체에서 Statement 클래스 타입 객체를 얻어올 수 있고, 
-이 객체를 가지고 특정 query를 실행할 수 있다.
+연결된 후에는 Connection 클래스 타입 객체에서 Statement 클래스 타입 객체를 얻어올 수 있고,  
+이 객체를 가지고 특정 query를 실행할 수 있다.  
 
 
 예시는 다음과 같다.
@@ -52,6 +52,7 @@ String query = "..."; // 실행하고 싶은 query
 try(
     // jdbc driver 로드
     Class.forName(driver);
+    
 
     Connection conn = DriverManager.getConnection(url, user, password);
     Statement stat = conn.createStatement();

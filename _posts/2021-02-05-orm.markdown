@@ -1,0 +1,53 @@
+---
+layout: post
+title: orm
+date: 2021-01-16
+# img: jpa-mapping.jpg # Add image post (optional)
+tags: [Blog, Study, ORM, JAVA]
+author: Seokkyu Ryu # Add name author (required-fixed)
+author-pic: sk.jpg # Add author-pic (required-fixed)
+about-author: screw.. # Add about-author (about 과 같음) (optional-fixed)
+email: tjrrb95@gmail.com # email (optiona-fixed)
+---
+
+# Introduction
+이전에는 우리는 jdbc를 사용하여 database에 connect하고, native sql query를 날려서 값을 꺼내봤었다.  
+
+
+이전 블로그에서도 봤듯이 java code에 sql query가 존재하게 되고, sql query는 dbms의 종류에 따라 문법이 상이하다.  
+그렇다면 java code가 dbms 종류에 따라 수정이 필요해진다. 즉, dbms에 종속적이게 된다.  
+
+
+그리고, 개인적인 생각으로는 순수 jdbc를 이용해서 코드를 짜면, 유지보수가 힘들고 가독성이 떨어져 보인다.  
+application 비지니스 로직과 qeury 로직이 같이 있게 되어 비니지스 로직에 집중하기 힘들고, java code에 string으로 native query가 있으니  
+이뻐보이지 않는다(?).  
+
+
+# ORM ?
+그래서 orm(object relational mapping)이라는 개념이 나왔다.  
+객체라는 것과 데이터 베이스의 테이블은 패러다임의 차이가 있다. 그 차이를 변환시켜주고 객체를 테이블로 매핑시켜주는 기술이 orm이다.  
+
+
+그래서 매핑을 잘 시켜놓으면 native query없이 객체 메소드를 통해 테이블의 정보에 대해 crud를 할 수 있다.  
+그러면 dbms에 종속적인 코드가 생기지 않게 되고, 그 객체가 다시 쓸 수 있어서 유지보수하기 편해진다.  
+
+
+개인적으로는 "SELECT * FROM TABLE" 같은 쿼리를 쓰지 않고, object.findAll()으로 원하는 값을 받아올 수 있게 되면,  
+확실히 가독성이 좋아지고 코드가 좀 더 이뻐지는 것 같다.  
+그러면 위에서 jdbc의 문제점인 특정 dbms에 종속적이 되거나, 유지보수가 힘들고, 비지니스 로직에 집중할 수 없는 문제들을 해결된다.  
+
+
+이러한 장점들이 있지만 당연히 orm의 단점도 있다. 다음 블로그에서 이런 orm기술을 어떤 인터페이스와 어떤 구현체로 이 기술을 실현시킬 수 있는 지에 대해 먼저 이야기하고나서 orm의 단점에 대해 이야기 나누면 좋을 것 같다.  
+
+
+
+
+
+
+
+
+
+
+
+
+
