@@ -3,7 +3,7 @@ layout: post
 title: jpa
 date: 2021-02-11
 # img: jpa-mapping.jpg # Add image post (optional)
-tags: [Blog, Study, JAVA, JPA, Hibernate]
+tags: [Blog, Study, JAVA, JPA]
 author: Seokkyu Ryu # Add name author (required-fixed)
 author-pic: sk.jpg # Add author-pic (required-fixed)
 about-author: screw.. # Add about-author (about 과 같음) (optional-fixed)
