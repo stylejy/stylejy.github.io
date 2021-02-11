@@ -1,7 +1,7 @@
 ---
 layout: post
 title: orm
-date: 2021-01-16
+date: 2021-02-05
 # img: jpa-mapping.jpg # Add image post (optional)
 tags: [Blog, Study, ORM, JAVA]
 author: Seokkyu Ryu # Add name author (required-fixed)

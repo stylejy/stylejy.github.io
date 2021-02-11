@@ -1,0 +1,33 @@
+---
+layout: post
+title: jpa
+date: 2021-02-11
+# img: jpa-mapping.jpg # Add image post (optional)
+tags: [Blog, Study, JAVA, JPA, Hibernate]
+author: Seokkyu Ryu # Add name author (required-fixed)
+author-pic: sk.jpg # Add author-pic (required-fixed)
+about-author: screw.. # Add about-author (about 과 같음) (optional-fixed)
+email: tjrrb95@gmail.com # email (optiona-fixed)
+---
+
+# Introduction
+이전 블로그에서 우리는 orm 개념에 대해 같이 이야기해보았다.  
+이번 블로그에서는 orm 개념이 실제로 어떻게 구현되고 있는 지를 이야기하고 싶다.  
+결론부터 말하자면, orm 기술에 대한 표준 명세인 jpa와 그것을 실제로 구현하고 있는 hibernate 프레임워크 등으로 orm 개념이 실현(?)되고 있다.
+
+# JPA(Java Persistence API)란? 
+JPA는 위에서 설명했다시피 orm 기술에 대한 java에서 제공하는 표준 api 명세이다. 즉, 설명서 같은 느낌이다.  
+JPA는 인터페이스이다. 어떤 기능 구현체도 존재하지 않는다. 실제로 database에 connection하고 sql query를 날리는 일은 jpa의 구현체인 hibernate 같은 프레임워크들이다.  
+
+난 궁금했다. 그냥 우리는 hibernate나 이런 프레임워크들을 사용하면 되는 데 왜 인터페이스를 두고, 레이어를 하나 더 두어서 복잡하게 만들어져 있는 것인지에 대한 의구심이 들었다. 그리고 공부하면서 그에 대한 해답(?)을 얻었는 데, 이는 인터페이스 개념 자체가 존재하는 이유였고, 내가 또 다른 부족함을 느낀 계기가 되었다. 인터페이스라는 개념을 안다고 생각했지만 제대로 모르고 있었기 때문이었다. 그래서 자바의 인터페이스, 상속 같은 개념도 정리하는 시간을 갖고 싶다.
+
+다시 돌아와서 java에서 jpa라는 인터페이스를 제공한 이유는 두 가지라고 생각한다.  
+첫 째로, 사용자와 jpa의 구현체와의 연결을 유연하게 가져감으로써 사용자가 언제든지 다른 구현체를 용이하게 바꿔 갈아낄 수 있도록 하기 위함이라고 생각하고  
+둘 째로, spring-data-jpa 같이 jpa를 한 번더 추상화한, 사용자가 더 편하게 jpa를 사용할 수 있도록 하는 프레임워크를 만들 때, jpa 밑에 구현체를 생각하지 않고 만들 수 있다는 장점이 있는 것 같다.  
+
+사실, jpa를 구현하는 다른 프레임워크들은 많다. 하지만, 다음 블로그에서는 우리는 hibernate 프레임워크에 대해 알아볼 것이다.  
+많이 찾아보진 못했지만 hibernate가 많이 쓰이는 것 같았기 때문이다. 게다가, spring-boot에서는 jpa 구현체를 default로 hibernate를 가져가고 있기 때문이다.  
+hibernate가 어떻게 동작하고, 어떤 방식으로 java 객체들을 관리하고, 어떻게 jpa 인터페이스를 구현하고 있는지에 대해 알아보자.  
+
+# P.S   
+다음 블로그에서는 Hibernate를 코드, 예시와 같이 글을 작성할 수 있었으면 좋겠다.   
