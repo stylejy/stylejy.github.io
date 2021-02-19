@@ -21,8 +21,8 @@ email: naji0630@gmail.com # email (optiona-fixed)
 <br>
 <br>
 더 강해져야하기 때문에.. 아주 복잡한 테이블 예제로 이야기를 이어나가고자 한다. 아래와 같은 복잡한 테이블이 있다고 가정하자. 이때 정보를 찾아가는 측면에서
-![다이어그램](2021-02-20-N+1-diagram.png)
-![테이](2021-02-20-N+1-diagram.png)
+![다이어그램](/./assets/img/2021-02-20-N+1-diagram.png)
+![테이블](/./assets/img/2021-02-20-N+1-table.png)
 
 관계형 데이터베이스와 객체 차이를 보인다.
 
