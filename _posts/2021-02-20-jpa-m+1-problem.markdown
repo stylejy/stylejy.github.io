@@ -32,16 +32,26 @@ email: naji0630@gmail.com # email (optiona-fixed)
    
 객체에서 **나**가 속한 팀을 조회하라.
    {% highlight java %}
-   Team team = new Team(1,"드림팀");
-   Member member = new Member(2,"나");
-   member.setTeam(team);
-   
    member.getTeam();
    {% endhighlight %}
-   
-위의 두 예제에서 처럼 **관계형 데이터베이스**에서 아이디를 기준으로 팀을 조회를 하고 있고
+
+두 방식의 차이를 느끼셨나요? 
+<br>**관계형 데이터베이스**에서 아이디를 기준으로 팀을 조회를 하고 있고
 **객체**에서는 참조를 따라가 member.getTeam()을 하는 방식으로 가져오고 있습니다. 
-만약 member.getTeamId()로 아이디를 꺼내서 이를 통해 객체를 조회하는 방식은 매우 불편할 것입니다.
+
+<br> 만약 JPA를 사용하지 않는다면 실제로는 다음과 같이 작업을 해주어야합니다.
+   {% highlight java %}
+   Member member = memberRepository.findByName("나");
+   String team_id = member.getTeam().getTeamId();
+   Team team = teamRepository.findById(team_id);
+   
+   member.setTeam(team);
+  
+   member.getTeam();
+   {% endhighlight %}
+
+
+많이 불편하죠? 이처럼 아이디를 꺼내서 이를 통해 객체를 조회하는 방식은 매우 불편하고 많은 반복 작업을 하게 될 것입니다.
 JPA는 이러한 차이를 알아서 보완해서 관계형 데이터베이스를 쓰기는 쓰지만 JAVA 코드에서는 객체지향적으로 
 사용할 수 있도록 처리해주는 역할을 해줍니다. 앞선 포스팅에서 예제가 있지만 다시 보자면 단지
 이렇게 객체를 정의해주면 관계형 데이터베이스에 있는 데이터를 객체지향적으로 다룰 수 있게 되는 것입니다.
