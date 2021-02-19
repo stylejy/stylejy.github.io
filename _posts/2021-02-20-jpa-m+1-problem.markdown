@@ -6,7 +6,7 @@ date: 2021-02-21
 tags: [Blog, Study, JAVA, JPA]
 author: Jihoon Na # Add name author (required-fixed)
 author-pic: jh.jpg # Add author-pic (required-fixed)
-about-author: screw.. # Add about-author (about 과 같음) (optional-fixed)
+about-author: 고수가 되고싶ㄷ.. # Add about-author (about 과 같음) (optional-fixed)
 email: naji0630@gmail.com # email (optiona-fixed)
 ---
 
@@ -23,7 +23,7 @@ email: naji0630@gmail.com # email (optiona-fixed)
 더 강해져야하기 때문에.. 아주 복잡한 테이블 예제로 이야기를 이어나가고자 합니다. 아래와 같은 복잡한 테이블이 있다고 가정하자. 이때 정보를 찾아가는 측면에서 관계형 데이터베이스와 객체 차이를 보입니다.
 <br>
 ![다이어그램](/./assets/img/2021-02-20-N+1-diagram.png){: width="30%" height="30%"}
-![테이블](/./assets/img/2021-02-20-N+1-table.png){: width="20%" height="20%"}
+![테이](/./assets/img/2021-02-20-N+1-table.png){: width="20%" height="20%"}
 <br>
 관계형 데이터베이스에서 **나**가 속한 팀을 조회하라.
    {% highlight sql %}
