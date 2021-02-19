@@ -11,7 +11,7 @@ email: naji0630@gmail.com # email (optiona-fixed)
 ---
 
 # Introduction
-이전 석규님의 JPA 설명을 통해 JPA가 무엇이고 어떤 역할을 해주는 지에 대해서 보았습니다. JPA에 대한 자세한 설명은 이전의 포스팅 참조 부탁드립니다. [JPA란?](https://liketech.codes/jpa-primitive-value-mapping/)
+이전 석규님의 JPA 설명을 통해 JPA가 무엇이고 어떤 역할을 해주는 지에 대해서 보았습니다. JPA에 대한 자세한 설명은 이전의 포스팅 참고 부탁드립니다. [JPA란?](https://liketech.codes/jpa-primitive-value-mapping/)
 오늘은 JPA에서 발생할 수 있는 문제인 N+1 문제에 대해서 간략히 알아보려고 합니다. JPA를 통해서 많은 코드 작성을 하지 않아도 RDBS를 객체 지향적으로
 사용할 수 있도록 도와주지만, 장점이 있는 만큼 세심하게 사용하지 않으면 비효율적인 동작을 할 수 있습니다. 그 대표적인 예가 N+1문제 입니다.
 
