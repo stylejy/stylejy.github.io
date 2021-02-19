@@ -21,8 +21,8 @@ email: naji0630@gmail.com # email (optiona-fixed)
 <br>
 <br>
 더 강해져야하기 때문에.. 아주 복잡한 테이블 예제로 이야기를 이어나가고자 한다. 아래와 같은 복잡한 테이블이 있다고 가정하자. 이때 정보를 찾아가는 측면에서
-![다이어그램](/./assets/img/2021-02-20-N+1-diagram.png)
-![테이](/./assets/img/2021-02-20-N+1-table.png)
+![다이어그램](/./assets/img/2021-02-20-N+1-diagram.png){: width="30%" height="30%"}
+![테이](/./assets/img/2021-02-20-N+1-table.png){: width="30%" height="30%"}
 
 관계형 데이터베이스와 객체 차이를 보인다.
 
@@ -40,67 +40,51 @@ email: naji0630@gmail.com # email (optiona-fixed)
    member.getTeam();
    {% endhighlight %}
    
-
-하지만, 사실 @Entity annotation을 domain class에 붙이면 class의 모든 member variables에는 default로 @Column annotation이 붙어진다.
-즉, 모든 member variables는 database의 column으로 mapping된다. 
+위의 두 예제에서 처럼 **관계형 데이터베이스**에서느 아이디를 기준으로 조회를 하고 있고
+**객체**에서는 참조를 따라가 member.getTeam()을 하는 방식으로 가져오고 있다. 
+만약 member.getTeamId()로 아이디를 꺼내서 이를 통해 객체를 조회하는 방식은 매우 불편할 것이다.
+JPA는 이러한 차이를 알아서 보완해서 관계형 데이터베이스를 쓰기는 쓰지만 JAVA 코드에서는 객체지향적으로 
+사용할 수 있도록 처리해주는 역할을 해준다. 앞선 포스팅에서 예제가 있지만 다시 보자면 단지
+이렇게 객체를 정의해주면 관계형 데이터베이스에 있는 데이터를 객체지향적으로 다룰 수 있게된다.
 
 {% highlight java %}
+
 @Entity
-public class Account {
-  ...
+public class Member {
+    @Id @GeneratedValue
+    @Column(name = "member_id")
+    private Long id;
 
-  private Long id;
+    @Column(name = "name")
+    private String username;
 
-  private String username;
-
-  ...
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="team_id")
+    private Team team;
 }
+
 {% endhighlight %}
 
-이렇게 써도 똑같은 의미이다. 자신의 코드 스타일에 따른 선택 사항이다.
-
-
-domain class에 database column으로 mapping되는 것을 원하지 않고 비지니스 로직만을 위한 변수가 필요한 경우가 있다.
-@Transient annotation을 사용하면 된다. 
-
 {% highlight java %}
+
 @Entity
-public class Account {
-  ...
+public class Team {
+    @Id
+    @GeneratedValue
+    @Column(name="team_id")
+    private Long id;
+    @Column
+    private String name;
 
-  @Transient
-  private String noColumn;
-
-  ...
+    @OneToMany(mappedBy = "team")
+    private List<Member> members = new ArrayList<>();
 }
+
 {% endhighlight %}
 
-Transient라는 것은 jpa가 관리하는 객체 상태와 관련된 개념인데, 이건 추후에 다뤄보자.
 
+이렇게만 선언해주면 **member.getTeam()** 으로 멤버로부터 팀을 조회할 수 있게 되는것이다.
 
-알다시피 database에 여러가지 제약 조건들이 있다. 예를 들면, not null이나 primary key 같은.
-당연히, jpa에서 그 제약 조건들도 걸 수 있다. 
+내부적으로 쿼리를 생성하고 정보를 mapping해주는 과정을 거쳤기 때문인데, 이렇게 편리한 기능인 만큼
+신경써줘야하는 부분 중 하나가 바로 오늘 이야기할 N+1 문제이다.
 
-{% highlight java %}
-public class Account {
-  ...
-
-  /**
-  * @Id를 사용하면 primary key 제약 조건을 걸 수 있다. 
-  */
-  @Id
-  @GeneratedValue
-  private Long id;
-  
-  /**
-  * @Column property로 nullable 속성을 줄 수 있다. 
-  */
-  @Column(nullable = false)
-  private String username;
-  
-  ...
-}
-{% endhighlight %}
-
-이런 것들은 빙산의 일각이다. 이외에도 다른 많은 제약 조건들을 지원하는 기능들이 있다.
-같이 찾아서 사용해보자.
