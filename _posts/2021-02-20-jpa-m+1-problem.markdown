@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JPA n+1 문제
+title: JPA n+1 문
 date: 2021-02-21
 # img: jpa-mapping.jpg # Add image post (optional)
 tags: [Blog, Study, JAVA, JPA, n+1, N+1]
@@ -253,7 +253,23 @@ public interface MemberRepository extends JpaRepository<Member,Long> {
 }
 {% endhighlight %}
 
-이렇게 선언했을때 쿼리 로그를 보도록하겠습니다.
+이렇게 선언하고 사용했을때 쿼리 로그를 보도록하겠습니다.
+
+{% highlight java %}
+@SpringBootTest
+@Transactional
+public class MemberRepositoryTest {
+
+    @Autowired MemberRepository memberRepository;
+    @Test
+    public void mPlusOneProblemTest(){
+        List<Member> memberList = memberRepository.findAllWithFetchJoin();
+        String team1 = memberList.get(0).getTeam().getName();
+        String team2 = memberList.get(2).getTeam().getName();
+    }
+}
+{% endhighlight %}
+
 
 ```
 Hibernate: 
