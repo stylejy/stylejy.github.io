@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JPA n+1 문
+title: JPA n+1 문제
 date: 2021-02-21
 # img: jpa-mapping.jpg # Add image post (optional)
 tags: [Blog, Study, JAVA, JPA, n+1]
