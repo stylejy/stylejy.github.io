@@ -31,7 +31,7 @@ email: naji0630@gmail.com # email (optiona-fixed)
 @Entity
 public class Member {
     private Long member_id;
-    private String username;
+    private String name;
     private Long team_id;
 }
 
