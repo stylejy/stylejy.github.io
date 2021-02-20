@@ -22,24 +22,56 @@ email: naji0630@gmail.com # email (optiona-fixed)
 <br>
 더 강해져야하기 때문에.. 아주 복잡한 테이블 예제로 이야기를 이어나가고자 합니다. 아래와 같은 복잡한 테이블이 있다고 가정해보겠습니다. 이때 정보를 찾아가는 측면에서 관계형 데이터베이스와 객체가 차이를 보입니다.
 <br>
-![다이어그램](/./assets/img/2021-02-20-N+1-diagram.png){: width="30%" height="30%"}
-![테이](/./assets/img/2021-02-20-N+1-table.png){: width="20%" height="20%"}
+![diagram](/./assets/img/2021-02-20-N+1-diagram.png){: width="30%" height="30%"}
+![table](/./assets/img/2021-02-20-N+1-table.png){: width="20%" height="20%"}
 <br>
-관계형 데이터베이스에서 **나**가 속한 팀을 조회하라.
-   {% highlight sql %}
-   SELECT * FROM MEMBER LEFT JOIN TEAM ON MEMBER.team_id = TEAM.team_id where member.name = '나'
-   {% endhighlight %}
-   
-객체에서 **나**가 속한 팀을 조회하라.
-   {% highlight java %}
-   member.getTeam();
-   {% endhighlight %}
+먼저 관계형 데이터베이스 스키마를 본 떠 엔티티 클래스를 만들어보도록 하겠습니다.
+{% highlight java %}
 
-두 방식의 차이를 느끼셨나요?<br>
-전자는 **관계형 데이터베이스**에서 **아이디**를 기준으로 조인한 후 팀을 조회를 하고 있고
-**객체**에서는 **참조** 통해, 즉 member.getTeam()을 하는 방식으로 가져오고 있습니다. 
+@Entity
+public class Member {
+    private Long member_id;
+    private String username;
+    private Long team_id;
+}
 
-<br> 만약 JPA를 사용하지 않는다면 실제로는 다음과 같이 멤버 객체에서 아이디를 구하고 구 한 아이디를 통해서
+{% endhighlight %}   
+
+{% highlight java %}
+
+    @Entity
+    public class Team {
+        private Long team_id;
+        private String name;
+    }
+
+{% endhighlight %}   
+
+관계형 데이터베이스의 스키마를 그대로 가져와 엔티티 클래스를 작성해보았습니다. 그럼 이제 특정 멤버 객체를 가져와서 그 멤버가 속한 팀을 조회하는 일을 해볼까요?
+
+{% highlight java %}
+
+    Member member = memberRepository.findById(2);
+    String team_id = member.getTeam().getTeamId();
+    Team team = teamRepository.findById(team_id);
+
+{% endhighlight %}
+
+
+뭔가 불편하지 않으신가요?<br>
+
+{% highlight java %}
+
+    Member member = memberRepository.findById(2);
+    Team team = member.getTeam();
+
+{% endhighlight %}
+
+뭔가 그냥 이렇게 조회를 하고 싶은 느낌이 들지 않으신가요?? 
+
+이처럼 관계형 데이터베이스와 객체지향적으로 코드를 작성하는 것에 차이가 있고 JPA는 이러한 차이를 보완해주는 기능을 합니다.
+
+<br> 만약 JPA를 사용하지 않는다면 실제로는 다음과 같이 멤버 객체에서 아이디를 구하고 구한 아이디를 통해서
 팀 객체를 데이터 베이스에서 조회한 후 맵핑해주는 작업을 해주어야합니다.
    {% highlight java %}
    Member member = memberRepository.findByName("나");
@@ -52,7 +84,7 @@ email: naji0630@gmail.com # email (optiona-fixed)
    {% endhighlight %}
 
 
-많이 불편하죠? 이처럼 아이디를 꺼내서 이를 통해 객체를 조회하는 방식은 매우 불편하고 많은 반복 작업을 하게 될 것입니다.
+많이 불편하죠? 이처럼 아이디를 꺼내서 이를 통해 객체를 조회하는 방식은 매우 불편하고 많은 반복 작업을 하도록 합니다.
 JPA는 이러한 차이를 알아서 보완해서 관계형 데이터베이스를 쓰기는 쓰지만 JAVA 코드에서는 객체지향적으로 
 사용할 수 있도록 처리해주는 역할을 해줍니다. 앞선 포스팅에서 예제가 있지만 다시 보자면 단지
 이렇게 객체를 정의해주면 관계형 데이터베이스에 있는 데이터를 객체지향적으로 다룰 수 있게 되는 것입니다.
