@@ -74,7 +74,7 @@ public class Member {
 <br> 만약 JPA를 사용하지 않는다면 실제로는 다음과 같이 멤버 객체에서 아이디를 구하고 구한 아이디를 통해서
 팀 객체를 데이터 베이스에서 조회한 후 맵핑해주는 작업을 해주어야합니다.
    {% highlight java %}
-   Member member = memberRepository.findByName("나");
+   Member member = memberRepository.findById(2);
    String team_id = member.getTeam().getTeamId();
    Team team = teamRepository.findById(team_id);
    
