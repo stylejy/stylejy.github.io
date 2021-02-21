@@ -3,7 +3,7 @@ layout: post
 title: Daily design pattern - 전략 패턴 - strategy pattern
 date: 2021-02-22
 # img: jpa-mapping.jpg # Add image post (optional)
-tags: [Blog, Study, JAVA, JPA, n+1]
+tags: [Blog, Study, JAVA, Strategy pattern]
 author: Jihoon Na # Add name author (required-fixed)
 author-pic: jh.jpg # Add author-pic (required-fixed)
 about-author: 고수가 되고싶ㄷ.. # Add about-author (about 과 같음) (optional-fixed)
