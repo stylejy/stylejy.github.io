@@ -268,7 +268,7 @@ public class main {
 뚜벅뚜벅
 아기가 밥을 먹는다.
 쩝쩝
-아기가 걷는다
+아기가 걷는다.
 아장아장
 아장아장
 {% endhighlight %}
