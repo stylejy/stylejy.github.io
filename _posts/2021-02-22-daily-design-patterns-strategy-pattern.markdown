@@ -160,7 +160,7 @@ public interface WalkBehavior {
 public class WalkWithStand implements WalkBehavior{
     @Override
     public void walk() {
-        System.out.printf("뚜벅뚜벅");
+        System.out.println("뚜벅뚜벅");
     }
 }
 {% endhighlight %}
@@ -169,7 +169,7 @@ public class WalkWithStand implements WalkBehavior{
 public class WalkWithNoStand implements WalkBehavior{
     @Override
     public void walk() {
-         System.out.printf("아장아장");
+         System.out.println("아장아장");
     }
 }
 {% endhighlight %}
@@ -178,7 +178,7 @@ public class WalkWithNoStand implements WalkBehavior{
 public class EatHard implements EatBehavior{
     @Override
     public void eat() {
-        System.out.printf("우걱우걱");
+        System.out.println("우걱우걱");
     }
 }
 {% endhighlight %}
@@ -187,7 +187,7 @@ public class EatHard implements EatBehavior{
 public class EatCute implements EatBehavior{
     @Override
     public void eat() {
-         System.out.printf("쩝쩝");
+         System.out.println("쩝쩝");
     }
 }
 {% endhighlight %}
@@ -256,7 +256,21 @@ public class main {
         man.performWalk();
     }
 }
-
+{% endhighlight %}
+{% highlight java %}
+남자가 밥을 먹는다.
+우걱우걱
+남자가 걷는다.
+뚜벅뚜벅
+여자가 밥을먹는다.
+우걱우걱
+여자가 걷는다.
+뚜벅뚜벅
+아기가 밥을 먹는다.
+쩝쩝
+아기가 걷는다
+아장아장
+아장아장
 {% endhighlight %}
 
 이처럼 변화가 있는 부분에 대해서 그룹화해서 캡슐화하여 교환하여 사용할 수 있는 것을 보았습니다.
