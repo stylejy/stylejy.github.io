@@ -230,6 +230,7 @@ public class main {
         Person man = new Man();
         Person woman = new Woman();
         Person baby = new Baby();
+
         System.out.println("남자가 밥을 먹는다.");
         man.performEat();
         System.out.println("남자가 걷는다.");
