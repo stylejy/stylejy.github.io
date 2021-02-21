@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Daily design pattern - 전략 패턴 (strategy pattern)
-date: 2021-02-21
+title: Daily design pattern - 전략 패턴 - strategy pattern
+date: 2021-02-22
 # img: jpa-mapping.jpg # Add image post (optional)
 tags: [Blog, Study, JAVA, JPA, n+1]
 author: Jihoon Na # Add name author (required-fixed)
@@ -21,11 +21,7 @@ email: naji0630@gmail.com # email (optiona-fixed)
 
 # God of 객체지향
 
-오늘은 심시티 컨셉의 프로그램을 개발하는 객체지향의 신이 되어보겠습니다. god of 객체지향 건셉으로 가보겠습니다.
-
-<br>
-주의!! 아래의 내용은 다소 성차별적인 내용이 적혀있을 수 있지만 단순히 예제를 위한 예제입니다. 남자도 화장하고 여자도 수염을 깎을 수 있습니다.
-<br>
+오늘은 심시티 컨셉의 프로그램을 개발하는 객체지향의 신이 되어보겠습니다. god of 객체지향 컨셉으로 가보겠습니다.
 
 오늘은 인간이라는 것을 만들어봐야겠군.. 
 
