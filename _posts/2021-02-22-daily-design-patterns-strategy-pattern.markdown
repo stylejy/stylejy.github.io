@@ -185,10 +185,10 @@ public class EatHard implements EatBehavior{
 {% endhighlight %}
 
 {% highlight java %}
-public class EatHard implements EatBehavior{
+public class EatCute implements EatBehavior{
     @Override
     public void eat() {
-         System.out.printf("우걱우걱");
+         System.out.printf("쩝쩝");
     }
 }
 {% endhighlight %}
