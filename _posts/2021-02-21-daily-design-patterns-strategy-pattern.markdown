@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Daily design pattern : 전략 패턴 (strategy pattern)
+title: Daily design pattern - 전략 패턴 (strategy pattern)
 date: 2021-02-21
 # img: jpa-mapping.jpg # Add image post (optional)
 tags: [Blog, Study, JAVA, JPA, n+1]
