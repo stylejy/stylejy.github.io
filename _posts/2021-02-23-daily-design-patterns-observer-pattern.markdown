@@ -200,7 +200,42 @@ public class Shop {
 
 이를 해결하기 위해 옵져버 패턴을 이용하여 느슨한 결합(Loose coupling)으로 구현해보겠습니다.
 
-먼저 가게 이름 변경 이벤트를 관찰할 객체에서 구현할 인터페이스를 만듭니다.
+먼저 가게 객체와 이름 변경 이벤트를 관찰할 객체에서 구현할 인터페이스를 만듭니다.
+
+{% highlight java %}
+public class Shop {
+    private Long id;
+    private String name;
+    private List<Observer> observerList;
+
+    public Shop(Long id){
+        observerList = new ArrayList<>();
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        System.out.println("이름 정보가 변경되었습니다." + name);
+        observerList.stream().forEach(elem-> elem.update(name));
+        this.name = name;
+    }
+
+    public void register(Observer observer){
+        observerList.add(observer);
+    }
+
+    public void remove(Observer observer){
+        observerList.remove(observer);
+    }
+}
+{% endhighlight %}
 
 {% highlight java %}
 public interface Observer {
@@ -213,13 +248,78 @@ Observer 인터페이스를 구현하도록 변경하였습니다.
 
 {% highlight github %}
 이친절 사원(가게팀) : 안녕하세요.이친절입니다. 이제 저희 정보를 받으시려면 Observer 인터페이스를 구현하고 등록해주셔야 합니다.
+이친절 사원(가게팀) : Observer 인터페이스를 구현하여 만든 객체를 register해주시고 구독을 멈추고 싶으실때는 remove를 해주시면 됩니다.
 {% endhighlight %}
 
-이처럼 변화가 있는 부분에 대해서 그룹화해서 캡슐화하여 교환하여 사용할 수 있는 것을 보았습니다.
-이를 통해 유연성있는 구조가 되었고 동적으로 프로그램 수행 도중에 변경을 할 수 있도록 구조가 바뀐 것을 보았습니다. 위의 예제처럼 먹는 행동, 걷는 행동을
-원하는 구현체로 조합해서 사용하는 것을 **구성(composition)** 이라고 하고 상속보다는 구성을 사용하는 것이 더 
-유연한 시스템을 설계할 수 있도록 한다는 것을 보았습니다.
+아래 코드를 보도록 하겠습니다.
 
->오늘의 내용 요약 : 전략 패턴은 알고리즘을 그룹화하여 교환하여 사용할 수 있도록 하는 패턴이다.
-> 구체적으로 말하면 변경될 수 있는 부분들은 변경될 수 있는 부분끼리 그룹화하여 교환하여 사용할 수 있도록 하는 것을 의미한다.
-> 그렇게 하기위해 단순히 상속을 이용하는 것이 아니라 구성을 활용하면 더 유연한 구조를 가져갈 수 있다.
+{% highlight java %}
+public class Gift implements Observer{
+    @Override
+    public void update(String name) {
+        System.out.println("선물하기에서 가게 이름이 변경되었습니다.");
+    }
+}
+{% endhighlight %}
+
+{% highlight java %}
+public class Coupon implements Observer{
+    @Override
+    public void update(String name) {
+        System.out.println("쿠폰에서 가게 이름이 변경되었습니다.");
+    }
+}
+{% endhighlight %}
+
+{% highlight java %}
+public class Reservation implements Observer{
+    @Override
+    public void update(String name) {
+        System.out.println("예약하기에서 가게 정보가변경되었습니다.");
+    }
+}
+{% endhighlight %}
+
+{% highlight java %}
+public class main {
+    public static void main(String[] args) { 
+        Shop shop = new Shop(1l);
+        shop.setName("처음 이름");
+
+        Observer reservation = new Reservation();
+        Gift gift = new Gift();
+        Coupon coupon = new Coupon();
+
+        shop.register(reservation);
+        shop.setName("이름 바꾸기 1");
+
+        shop.register(gift);
+        shop.register(coupon);
+        shop.setName("이름 바꾸기 2");
+
+        shop.remove(reservation);
+        shop.setName("이름 바꾸기 3");
+    }
+}
+{% endhighlight %}
+{% highlight github %}
+    이름 정보가 변경되었습니다.처음 이름
+    이름 정보가 변경되었습니다.이름 바꾸기 1
+    예약하기에서 가게 정보가변경되었습니다.
+    이름 정보가 변경되었습니다.이름 바꾸기 2
+    예약하기에서 가게 정보가변경되었습니다.
+    선물하기에서 가게 이름이 변경되었습니다.
+    쿠폰에서 가게 이름이 변경되었습니다.
+    이름 정보가 변경되었습니다.이름 바꾸기 3
+    선물하기에서 가게 이름이 변경되었습니다.
+    쿠폰에서 가게 이름이 변경되었습니다.
+{% endhighlight %}
+
+이처럼 느슨한 결합 전략을 사용하면, 즉 상호작용하는 서로가 서로를 잘 알지 못하고도 작동하도록 구성하면
+변경에 강건한 특성을 가지게 됩니다. 상점 모듈을 담당하고 있는 이친절 사원은 이제 다른 팀의 api를 직접
+호출해줄 필요도 없고 다른 곳에서도 유연성있게 등록, 삭제하며 해당 이벤트를 받아볼 수 있게 되었습니다.
+
+>오늘의 내용 요약 : 관찰자 패턴은 한 객체의 상태가 바뀔 때 다른 객체들에게 연락이 가는 구조의 패턴입니다. 이 패턴을
+> 통해서 느슨한 결합을 구현할 수 있으며 이는 시스템을 변경에 강건하도록 만들어주는 것을 보았습니다.
+
+수고하셨습니다!
