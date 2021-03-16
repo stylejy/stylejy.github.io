@@ -159,7 +159,7 @@ Hibernate:
 ```
 <br>
 
-다음의 데이터베이스 테이블 상태를 봐도 이름이 screw2로 되어있는 것을 확인할 수 있다. <br>
+다음의 데이터베이스 테이블 상태를 봐도 이름이 screw_new로 되어있는 것을 확인할 수 있다. <br>
 ![table](/./assets/img/hibernate-entity-persistence.JPG){: width="30%" height="30%"}
 
 그렇다면 hibernate가 관리하지 않는 상태라는 Detached 상태일 때는 어떻게 될까?
