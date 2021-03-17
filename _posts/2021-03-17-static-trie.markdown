@@ -1,6 +1,6 @@
 ---
 layout: post
-title: entity-state
+title: Trie
 date: 2021-03-17
 # img: jpa-mapping.jpg # Add image post (optional)
 tags: [Blog, Study, cpp, Trie]
