@@ -1,7 +1,7 @@
 ---
 layout: post
 title: entity-state
-date: 2021-03-08
+date: 2021-03-16
 # img: jpa-mapping.jpg # Add image post (optional)
 tags: [Blog, Study, JAVA, Spring-boot, Hibernate]
 author: Seokkyu Ryu # Add name author (required-fixed)
