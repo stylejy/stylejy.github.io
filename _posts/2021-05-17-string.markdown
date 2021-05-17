@@ -1,7 +1,7 @@
 ---
 layout: post
-title: [복습] string, stringbuilder, stringbuffer - 1
-date: 2021-05-08
+title: string
+date: 2021-05-17
 # img: jpa-mapping.jpg # Add image post (optional)
 tags: [Blog, Study, JAVA]
 author: Seokkyu Ryu # Add name author (required-fixed)
