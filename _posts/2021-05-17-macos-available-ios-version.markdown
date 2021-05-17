@@ -15,12 +15,15 @@ email: stylejy@gmail.com # email (optiona-fixed)
 해당 버전을 살려보려고 xcode도 여러번 지웠다 깔아보고, xcode의 버전도 낮춰 시도 해보고, 시뮬레이터도 여러번 다시 지웠다가 깔았는데도 시뮬레이터 생성시 해당 버전이 나타나지 않았습니다. 분명히 Preferences-Components 탭에 해당 런타임을 다운 받았는지 확인을 했고, xcode도 깨끗하게 지우기 위해 여러 방법들을 사용했는데도 끝내 돌아오지 않았습니다.
 
 꽤 많은 삽질 끝에 이유를 알았습니다.
+
 > macOS 버전에 따라서 구동시킬 수 있는 simulator version이 달라진다.
+
 네 맞습니다. 구 버전의 macOS 에서 잘 테스트하던 시뮬레이터가 xcode나 시뮬레이터의 변경 없이 macOS 버전만 올려도 구동이 불가할 수도 있습니다.
 
 최신 버전의 xcode(글을 작성하는 시점에서 12.5버전)에서는 구동 불가능한 버전의 시뮬레이터 런타임(iOS 11.4 미만의 버전)은 Preferences-Components 탭에서도 없어지는 것을 확인 했습니다. 하지만 그 이전 버전의 xcode 구버전에서는 Components 탭에서 나타나기는 하나 구동할 수는 없습니다.
 
 >근데? 이게 다른 이유일 수도 있지 않나? 정말 xcode나 simulator 설정이 꼬인 것일 수도 있잖아?
+
 그럴 수도 있죠, 이 때 사용할 수 있는 명령어가 있습니다.
 
 > xcrun simctl list runtimes
