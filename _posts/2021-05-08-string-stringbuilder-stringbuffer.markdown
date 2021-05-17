@@ -1,0 +1,87 @@
+---
+layout: post
+title: [복습] string, stringbuilder, stringbuffer - 1
+date: 2021-05-08
+# img: jpa-mapping.jpg # Add image post (optional)
+tags: [Blog, Study, JAVA]
+author: Seokkyu Ryu # Add name author (required-fixed)
+author-pic: sk.jpg # Add author-pic (required-fixed)
+about-author: screw.. # Add about-author (about 과 같음) (optional-fixed)
+email: tjrrb95@gmail.com # email (optiona-fixed)
+---
+
+오늘부터 String과 StringBuilder와 StringBuffer의 차이점에 대해 적어보려고 합니다.  
+그 중에 이번 블로그에서는 String에 대해서 적어보려고 합니다.  
+특히, String의 불변성, thread-safe 측면에서 설명할 것입니다.  
+
+String은 불변(immutable)합니다.  
+불변하다는 것은 한 번 선언되고 초기화가 된 후에 변경이 되지 않는다는 의미입니다.  
+하지만 String을 가지고 concat 함수를 이용해서 문자열을 변경되는 것처럼 보이는 데, 왜 불변인걸까?  
+
+예를 들어 다음과 같은 코드가 있다고 가정해봅시다.
+
+```java
+String str1 = "hello";
+str1 = str1.concat(" world");
+```
+```
+str : hello world
+```
+
+이 코드를 보면 우리는 str1을 잘 변경시킨 것 같습니다.  
+하지만 내부적으로 동작하는 원리를 보면 자바는 string을 "위와 같이" 생성하고 초기화하게 되면 string pool이라는 곳에 할당하고 그 참조값을 반환합니다. 그리고 위와 같이 concat을 하면 str1을 변경하는 것이 아니라 "hello world" 라는 string타입의 새로운 객체를 만들고 그 참조값을 반환합니다. 그렇기 때문에 처음에 생성되고 초기화된 "hello" string은 변할 수 없기 때문에 불변하다고 합니다.  
+
+> 과연 정말 그럴까? 확인해보자.  
+
+그렇다면 다음과 같은 코드가 있을 때, str1과 str2가 갖고 있는 참조값은 같아야 합니다.  
+왜냐하면 "hello"라는 string pool에 있는 string을 참조하고 있기 때문입니다.  
+
+```java
+String str = "hello";
+String str1 = "hello";
+```
+
+확인해보자.
+
+```java
+String str = "hello";
+String str1 = "hello";
+System.out.println(str == str1);
+System.out.println("str's identityHashCode : " + System.identityHashCode(str));
+System.out.println("str1's identityHashCode : " + System.identityHashCode(str1));
+```  
+
+```
+true
+str's identityHashCode : 234698513
+str1's identityHashCode : 234698513
+```
+ㅇㅇ 그렇다고 합니다.  
+
+또 하나는, 정말 concat을 하면 다른 주소값을 갖게 되는 것일까?  
+
+```java
+String str = "hello";
+System.out.println("str : " + str);
+System.out.println("str's identityHashCode : " + System.identityHashCode(str));
+
+str = str.concat(" world");
+System.out.println("str : " + str);
+System.out.println("str's identityHashCode : " + System.identityHashCode(str));
+```
+아래에서 보이는 것처럼 concat을 하게되면 str에 이전과 다른 참조값이 들어가는 것을 확인할 수 있습니다. 
+
+```
+str : hello
+str's identityHashCode : 905654280
+str : hello world
+str's identityHashCode : 592179046
+```
+
+이로써 string은 불변하다는 것을 알게 되었습니다.  
+이렇게 불변하게 되면 즉, string의 값을 변경하려고 하면, 새로운 객체를 만들고 그 참조값을 반환하기에 thread마다 독립적이게 됩니다.  
+이를 thread-safe하다고 합니다.  
+![image](/./assets/img/string_thread_safe.jpg){: width="50%" height="50%"}
+
+> 결론  
+> string은 immutable하고 thread-safe하다.  
