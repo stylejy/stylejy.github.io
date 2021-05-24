@@ -10,7 +10,7 @@ about-author: screw.. # Add about-author (about 과 같음) (optional-fixed)
 email: tjrrb95@gmail.com # email (optiona-fixed)
 ---
 
-이번 블로그에서는 stringbuilder와 string buffer에 대해서 이어서 적어보려고 합니다.  
+이번 블로그에서는 stringbuilder와 stringbuffer에 대해서 이어서 적어보려고 합니다.  
 
 
 이전 블로그에서 확인하면 알 수 있지만 immutable한 string은 concat이나 + 기호로 변화시키려고 하면 변화되지 않고 계속 새로운 메모리를 소모합니다. 하지만 stringbuilder, stringbuffer는 mutable합니다.  
@@ -72,7 +72,7 @@ stringBuffer String : Hello World
 
 StringBuilder와 StringBuffer는 모두 AbstractStringBuilder를 구현하고 있습니다. 하지만 특정 함수 구현 방법에 차이가 있습니다. 
 
--- StringBuilder.class 
+-- StringBuilder.java 
 ```java
 ...
 @Override
@@ -84,7 +84,7 @@ public StringBuilder append(String str) {
 ...
 ```
 
--- StringBuffer.class 
+-- StringBuffer.java 
 ```java
 ...
 @Override
