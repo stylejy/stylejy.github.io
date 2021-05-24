@@ -46,8 +46,8 @@ System.out.println();
 <br>
 
 ```
-stringBuilder String : stringBuilder 
-stringBuffer String : stringBuffer 
+stringBuilder String : Hello 
+stringBuffer String : Hello 
 
 stringBuilder identityHashCode : 905654280
 stringBuffer identityHashCode : 592179046
@@ -55,8 +55,8 @@ stringBuffer identityHashCode : 592179046
 stringBuilder identityHashCode : 905654280
 stringBuffer identityHashCode : 592179046
 
-stringBuilder String : stringBuilder append String1
-stringBuffer String : stringBuffer append String2
+stringBuilder String : Hello World
+stringBuffer String : Hello World
 ```
 > stringBuilder와 stringBuffer의 문자열이 내용이 변했지만 참조값은 변하지 않았음을 알 수 있습니다!  
 > stringBuilder와 stringBuffer는 mutable하다!  
